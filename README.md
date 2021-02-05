@@ -26,7 +26,7 @@ php+js 前后端分离之签名
 ```js
 <script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
 <script>
-    var postData = {"demo":"demo"};
+    var postData = {"demo":"hello"};
     /**
      * json 排序
      * 先排序再toLower,所以Did 在appid 之前
@@ -45,13 +45,13 @@ php+js 前后端分离之签名
             if(Array.isArray(jsonObj[arr[i]])) {
                 continue;
             }
-            str +="&"+arr[i].toLowerCase()+"="+jsonObj[arr[i]].toLowerCase();
+            str +="&"+arr[i].toLowerCase()+"="+decodeURI(jsonObj[arr[i]]).toLowerCase();
         }
+        console.log(str);
         return md5(str,sign_key)
     }
-	
-	
     var str = jsonSort(postData);
     console.log(str);
+
 </script>
 ```
