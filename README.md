@@ -8,7 +8,7 @@ php+js 前后端分离之签名
      * @return bool
      * 前端参考签名 https://www.cnblogs.com/dcb3688/p/4608008.html
      */
-    function getSign($request,$key='YkmV40EM32')
+    function getSign($request,$key='ABC123')
     {
         if(isset($request['sign'])) unset($request['sign']);
         ksort($request);
@@ -31,7 +31,7 @@ php+js 前后端分离之签名
      * json 排序
      * 先排序再toLower,所以Did 在appid 之前
      */
-    function jsonSort(jsonObj,sign_key='YkmV40EM32') {
+    function jsonSort(jsonObj,sign_key='ABC123') {
         let arr = [];
         for (var key in jsonObj) {
             if(key != 'sign') {
